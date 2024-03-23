@@ -5,8 +5,8 @@ import datetime
 app = Flask(__name__)
 
 def getweatherinfo(city): 
-    
-    response = get(f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid=46cb5a7600879c70efa657aa740287ff&units=metric")
+   # API_ID = insert your api id here 
+    response = get(f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_ID}")
     data = response.json()
     weatherinfo = {
             "city": data["name"],
@@ -20,7 +20,6 @@ def getweatherinfo(city):
             "wind_direction": data["wind"]["deg"],
             "timezone" : int(data['timezone']),
             "sunrise_utc" : int(data['sys']['sunrise']),
-            "sunrise_local" : datetime.utcfromtimestamp("sunrise_utc" + "timezone").strftime('%H-%M-%S')
         }
     return weatherinfo
 @app.route('/')
