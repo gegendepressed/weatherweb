@@ -7,15 +7,17 @@
 </head>
 <body>
     <p><b><h1>{{weatherinfo.city }}'s Weather Today </h1> </b></p>
-    <p> City : {{ weatherinfo.city }}, </p>
+    <p> City : {{ weatherinfo.city }}, {{ weatherinfo.country }}</p>
     <p> Longitude and Latitude : {{ weatherinfo.longitude }}° and {{ weatherinfo.latitude }}°</p>
     <p> Temperature is : {{ weatherinfo.current_temperature }}° Celsius</p>
-    <p> Average Temperature is : {{ weatherinfo.average_temperature }}° Celsius</p>
+    <p> What it feels like  : {{ weatherinfo.feels_like}}° Celsius</p>
+    <p> Minimum Temperature is : {{ weatherinfo.min_temp }}° Celsius</p>
+    <p> Maximum Temperature is : {{ weatherinfo.max_temp }}° Celsius</p>
     <p> Humidity is : {{ weatherinfo.humidity }} %</p>
     <p> Visibility is : {{ weatherinfo.visibility }} km</p>
     <p> Description is : {{ weatherinfo.description}}</p>
     <p> Wind Speed(km/h) is : {{ weatherinfo.wind_speed }} km/hr</p>
-    <p> Observed At: {{ weatherinfo.sunrise_local }}</p>
+    <p> Wind Direction is : {{ weatherinfo.wind_direction }} km/hr</p>
 
 </body>
 <footer style="  position: fixed;

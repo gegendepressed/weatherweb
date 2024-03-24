@@ -6,13 +6,17 @@ app = Flask(__name__)
 
 def getweatherinfo(city): 
    # API_ID = insert your api id here 
-    response = get(f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_ID}")
+    response = get(f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric")
     data = response.json()
     weatherinfo = {
             "city": data["name"],
+            "country": data["sys"]["country"],
             "latitude": data["coord"]["lat"],
             "longitude": data["coord"]["lon"],
             "current_temperature": data["main"]["temp"], 
+            "feels_like" : data["main"]["feels_like"],
+            "min_temp" : data["main"]["temp_min"],
+            "max_temp" : data["main"]["temp_max"],
             "humidity": data["main"]["humidity"],
             "visibility": data["visibility"],
             "description": data["weather"][0]["description"],
